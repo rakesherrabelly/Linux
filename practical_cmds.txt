@@ -1,0 +1,53 @@
+To copy files based on pattern from one directory to another:
+find /path/to/source/ -type f -name "\*.txt" -exec cp {} /path/to/destination/ \;
+---------------------------------------------------
+
+To copy directory from one machine to local machine:
+Syntax: scp local_file.txt username@remote_host:/path/to/destination/
+scp -i MyKeyPair.pem -r ubuntu@3.86.143.58:/home/ubuntu/scripts/ .
+---------------------------------------------------
+
+To rename a file name with current timestamp:
+filename\_$(date +%F-%H:%M)
++%F-%H:%M will format the date as 2014-05-19-14:47
+---------------------------------------------------
+
+To make a user created command available for all users in Ubuntu:
+we generally need to place the executable script or command in a location that is included in the system's PATH. Here are the steps you can follow:
+
+Create the Script: Create your script or command and make it executable. For example, let's assume you have a script called mycommand:
+
+#!/bin/bash
+echo "Hello from my command!"
+
+Save this script, and make it executable using chmod +x mycommand
+
+Choose a System-Wide Directory: We need to place our script in a directory that is included in the system's PATH. Common directories for this purpose include /usr/local/bin or /usr/bin.
+
+sudo cp mycommand /usr/local/bin/
+
+Alternatively, you can use the /usr/bin/ directory, but keep in mind that modifying this directory might interfere with package management systems.
+
+sudo cp mycommand /usr/bin/
+
+Adjust Permissions: Make sure that the script has the appropriate permissions. In general, commands in /usr/local/bin or /usr/bin should be executable by all users:
+
+sudo chmod +x /usr/local/bin/mycommand
+
+Verify: we can test whether our command is now available system-wide by trying to run it from any user account:
+
+mycommand
+
+If we see the expected output, then our command is now available for all users.
+Remember that modifying system-wide directories requires superuser (root) privileges, hence we used sudo in the commands above. Always be cautious when making system-level changes.
+
+Additionally, if we are working in a multi-user environment and want to share scripts among a group of users, we might consider creating a shared directory with appropriate permissions and adding that directory to the system PATH.
+---------------------------------------------------
+
+To create a folder with today's date by replacing spaces with underscores, using a single command in Linux, below are the few ways:
+mkdir "$(date '+%Y %m %d' | tr ' ' '_')"
+mkdir "$(date | sed 's/ /_/g')"
+mkdir "$(date '+%Y %m %d' | sed 's/ /_/g')"
+---------------------------------------------------
+
+
