@@ -1,0 +1,463 @@
+ubuntu@ip-10-100-0-46:~/2023-12-29$ ls
+history_2023-12-29
+ubuntu@ip-10-100-0-46:~/2023-12-29$ cat history_2023-12-29 | more
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "$(date)" | ${str// /_}
+echo "$(date)" | sed 's/ /_/'
+echo "$(date)" | sed 's/ /_/g'
+echo "$(date)" | sed 's/ /_/g' << mkdir
+echo "$(date)" | sed 's/ /_/g' > echo $(mkdir)
+echo "$(date)" | sed 's/ /_/g' | << mkdir
+echo "$(date)" | sed 's/ /_/g' | echo $(mkdir)
+echo "$(date)" | sed 's/ /_/g' | echo mkdir
+echo "$(date)" | sed 's/ /_/g' | mkdir
+echo "$(date)" | sed 's/ /_/g' | mkdir <
+echo "$(date)" | sed 's/ /_/g' | mkdir <<
+echo "1 2 3 4 5 6 7 8" > ONE
+echo "A B C D E F G H" >> ONE
+echo $?
+exit
+find -name "sudo"
+find / -name "sudo"
+groups
+history
+history > history_"$(date '+%Y-%m-%d')"
+history | awk '{for (i=2; i<=NF; i++) print $i}'
+history | awk '{for (i=2; i<=NF; i++) print $i}' | sort | uniq
+history | awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}'
+history | awk '{print $2}' | sort | uniq
+history | awk '{print $NF}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) print $i}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}' >history_2023-12-29
+history | awk -F ' ' '{for (i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}' | sort | uniq
+history | awk -F ' ' '{for (i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}' | sort | uniq -d > history_2023-12-29
+history | awk -F ' ' '{for (i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}' | sort | uniq > history_2023-12-29
+history | awk -F ' ' '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS :
+ ORS)}'
+history | awk -F ' ' '{print $2}'
+history | awk -F ' ' '{print $2}' | sort | uniq
+history | awk -F '{print $2}'
+history | awk -F' ' '{print $2}'
+history | awk -F: '{print $2}'
+history | sort -k2 | uniq
+history | sort -r | uniq
+history | sort | uniq
+history | uniq
+hostname
+hostname --help
+hostname -I
+hostname -V
+hostname -a
+hostname -a hello
+hostname -d
+hostname -f
+hostname -i
+hostname -n
+hostname -v
+ll
+ls
+ls -l
+man adduser
+man hostname
+man ssh
+man time
+man uname
+man useradd
+mkdir "$(date ' %Y %m %d' | tr ' ' '_')"
+mkdir "$(date '%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y-%m-%d' | sed 's/ /_/g')"
+mkdir "$(date | sed 's/ /_/g')"
+mkdir "$(date)"
+mkdir "$(date)" | sed 's/ /_/g'
+mkdir $(date)
+mkdir << echo "$(date)" | sed 's/ /_/g'
+pwd
+rm -rf
+rm -rf 'Fri Dec 29 21:30:42 UTC 2023'/
+rm -rf 'Fri Dec 29 23:33:30 UTC 2023'/
+rm -rf *
+rm -rf 2023_12_29/
+rm -rf Fri\ Dec\ 29\ 21\:18\:21\ UTC\ 2023/
+rm -rf Fri_Dec_29_21\:31\:22_UTC_2023/
+rm abc
+rm echo
+rm qb
+sort history_2023-12-29 | uniq -d
+sort history_2023-12-29 | uniq -d > abc
+ssh --help
+sudo useradd user1
+sudo userdel user1
+time
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "$(date)" | ${str// /_}
+echo "$(date)" | sed 's/ /_/'
+echo "$(date)" | sed 's/ /_/g'
+"history_2023-12-29" 135L, 3641B                           1,1           Top
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "A B C D E F G H" >> ONE
+groups
+history
+history > history_"$(date '+%Y-%m-%d')"
+history | awk '{for (i=2; i<=NF; i++) print $i}'
+history | awk '{for (i=2; i<=NF; i++) print $i}' | sort | uniq
+history | awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}'
+history | awk '{print $2}' | sort | uniq
+history | awk '{print $NF}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) print $i}'
+history | awk -F ' ' '{print $2}'
+history | awk -F ' ' '{print $2}' | sort | uniq
+history | awk -F '{print $2}'
+history | awk -F' ' '{print $2}'
+history | awk -F: '{print $2}'
+history | sort -k2 | uniq
+history | sort -r | uniq
+history | sort | uniq
+history | uniq
+hostname
+hostname --help
+hostname -I
+hostname -V
+hostname -a
+hostname -a hello
+hostname -d
+hostname -f
+hostname -i
+hostname -n
+hostname -v
+ll
+ls
+ls -l
+man adduser
+man hostname
+man ssh
+man time
+man uname
+man useradd
+mkdir "$(date ' %Y %m %d' | tr ' ' '_')"
+mkdir "$(date '%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y-%m-%d' | sed 's/ /_/g')"
+mkdir "$(date | sed 's/ /_/g')"
+mkdir "$(date)"
+mkdir "$(date)" | sed 's/ /_/g'
+mkdir $(date)
+mkdir << echo "$(date)" | sed 's/ /_/g'
+pwd
+rm -rf
+rm -rf 'Fri Dec 29 21:30:42 UTC 2023'/
+rm -rf 'Fri Dec 29 23:33:30 UTC 2023'/
+rm -rf *
+rm -rf 2023_12_29/
+rm -rf Fri\ Dec\ 29\ 21\:18\:21\ UTC\ 2023/
+rm -rf Fri_Dec_29_21\:31\:22_UTC_2023/
+rm abc
+rm echo
+rm qb
+sort history_2023-12-29 | uniq -d
+sort history_2023-12-29 | uniq -d > abc
+ssh --help
+sudo useradd user1
+sudo userdel user1
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+time --help
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "$(date)" | ${str// /_}
+echo "$(date)" | sed 's/ /_/'
+echo "$(date)" | sed 's/ /_/g'
+"history_2023-12-29" 135L, 3641B                           1,1           Top
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "A B C D E F G H" >> ONE
+groups
+history
+history > history_"$(date '+%Y-%m-%d')"
+history | awk '{for (i=2; i<=NF; i++) print $i}'
+history | awk '{for (i=2; i<=NF; i++) print $i}' | sort | uniq
+history | awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}'
+history | awk '{print $2}' | sort | uniq
+history | awk '{print $NF}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) print $i}'
+history | awk -F ' ' '{print $2}'
+history | awk -F ' ' '{print $2}' | sort | uniq
+history | awk -F '{print $2}'
+history | awk -F' ' '{print $2}'
+history | awk -F: '{print $2}'
+history | sort -k2 | uniq
+history | sort -r | uniq
+history | sort | uniq
+history | uniq
+hostname
+hostname --help
+hostname -I
+hostname -V
+hostname -a
+hostname -a hello
+hostname -d
+hostname -f
+hostname -i
+hostname -n
+hostname -v
+ll
+ls
+ls -l
+man adduser
+man hostname
+man ssh
+man time
+man uname
+man useradd
+mkdir "$(date ' %Y %m %d' | tr ' ' '_')"
+mkdir "$(date '%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y-%m-%d' | sed 's/ /_/g')"
+mkdir "$(date | sed 's/ /_/g')"
+mkdir "$(date)"
+mkdir "$(date)" | sed 's/ /_/g'
+mkdir $(date)
+mkdir << echo "$(date)" | sed 's/ /_/g'
+pwd
+rm -rf
+rm -rf 'Fri Dec 29 21:30:42 UTC 2023'/
+rm -rf 'Fri Dec 29 23:33:30 UTC 2023'/
+rm -rf *
+rm -rf 2023_12_29/
+rm -rf Fri\ Dec\ 29\ 21\:18\:21\ UTC\ 2023/
+rm -rf Fri_Dec_29_21\:31\:22_UTC_2023/
+rm abc
+rm echo
+rm qb
+sort history_2023-12-29 | uniq -d
+sort history_2023-12-29 | uniq -d > abc
+ssh --help
+sudo useradd user1
+sudo userdel user1
+CAT ONE
+awk '{for (i=2; i<=NF; i++) print $i}' ONE
+awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}' ONE
+awk '{print $2}' history_2023-12-29
+awk '{print $2}' history_2023-12-29 | sort | uniq
+awk '{print $2}' history_2023-12-29 | uniq
+awk -F ' ' '{for (i=2; i<=NF; i++) print $i}' ONE
+cat /etc/host
+cat /etc/hosts
+cat /etc/passwd
+cat /etc/passwd | grep var
+cat ONE
+cat history_2023-12-29
+cat history_2023-12-29 | more
+cd
+cd /
+dnsdomainname
+domainname
+echo "$(date)"
+echo "$(date)" |
+echo "$(date)" | "${str// /_}"
+echo "$(date)" | "${str// /_}"'
+echo "$(date)" | ${s/ /_}
+echo "A B C D E F G H" >> ONE
+groups
+history
+history > history_"$(date '+%Y-%m-%d')"
+history | awk '{for (i=2; i<=NF; i++) print $i}'
+history | awk '{for (i=2; i<=NF; i++) print $i}' | sort | uniq
+history | awk '{for (i=3; i<=NF; i++) printf "%s%s", $i, (i<NF ? OFS : ORS)}'
+history | awk '{print $2}' | sort | uniq
+history | awk '{print $NF}'
+history | awk -F ' ' '{for (i=2; i<=NF; i++) print $i}'
+history | awk -F ' ' '{print $2}'
+history | awk -F ' ' '{print $2}' | sort | uniq
+history | awk -F '{print $2}'
+history | awk -F' ' '{print $2}'
+history | awk -F: '{print $2}'
+history | sort -k2 | uniq
+history | sort -r | uniq
+history | sort | uniq
+history | uniq
+hostname
+hostname --help
+hostname -I
+hostname -V
+hostname -a
+hostname -a hello
+hostname -d
+hostname -f
+hostname -i
+hostname -n
+hostname -v
+ll
+ls
+ls -l
+man adduser
+man hostname
+man ssh
+man time
+man uname
+man useradd
+mkdir "$(date ' %Y %m %d' | tr ' ' '_')"
+mkdir "$(date '%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y %m %d' | tr ' ' '_')"
+mkdir "$(date '+%Y-%m-%d' | sed 's/ /_/g')"
+mkdir "$(date | sed 's/ /_/g')"
+mkdir "$(date)"
+mkdir "$(date)" | sed 's/ /_/g'
+mkdir $(date)
+mkdir << echo "$(date)" | sed 's/ /_/g'
+pwd
+rm -rf
+rm -rf 'Fri Dec 29 21:30:42 UTC 2023'/
+rm -rf 'Fri Dec 29 23:33:30 UTC 2023'/
+rm -rf *
+rm -rf 2023_12_29/
+rm -rf Fri\ Dec\ 29\ 21\:18\:21\ UTC\ 2023/
+rm -rf Fri_Dec_29_21\:31\:22_UTC_2023/
+rm abc
+rm echo
+rm qb
+sort history_2023-12-29 | uniq -d
+sort history_2023-12-29 | uniq -d > abc
+ssh --help
+sudo useradd user1
+sudo userdel user1
+time
+time --help
+time --o output.txt ls
+time --verbose "%E real, %U user, %S sys" ls
+time -f "%E real, %U user, %S sys" ls
+time -o output.txt ls
+time -p ls
+time -v "%E real, %U user, %S sys" ls
+uname
+uname --help
+uname -a
+uname -i
+uname -m
+uname -n
+uname -o
+uname -p
+uname -r
+uname -s
+uname -v
+uniq history_2023-12-29
+useradd --help
+useradd user1
+username
+vim abc
+vim history_2023-12-29
+
+                                                           
