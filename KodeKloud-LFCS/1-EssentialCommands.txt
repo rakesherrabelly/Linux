@@ -1,0 +1,247 @@
+# read--and-use-system-documentation
+
+cmd --help
+
+journalctl : Query the systemd journal, cmd that reads system logs
+
+apropos : search the manual page names and descriptions.
+apropos <keyword>
+apropos director
+
+At the first time we run we may get error because apropos relies on database. If that database is not yet created we can create it by sudo mandb.On the servers that run for days it will be done automatically.
+
+apropos -s 1,8 director
+we should refer to only sections with 1 and 8.
+
+# Basic commands
+
+ls : list
+ls -a : all
+ls -l /var/log : long listing
+la -altr
+ls -alh : h is for human readable format
+
+pwd : print working directory
+
+cd /var/log : change Directory
+cd .. : parent directory
+cd / : got to root directory
+cd - : go to previous directory
+cd : goto home directory
+
+touch filename : create file
+
+mkdir dirname : make directory
+
+cp [sourceFile] [destinationFile] : to copy
+cp -r [sourceDir] [destinationDir] : to copy recursive
+
+mv [source] [dest] : to move or rename
+
+rm [filename] : delete
+rm -r [dir] : delete recursively
+
+stat : Display file system status
+stat [file/dir]
+
+# create-and-manage-hard-links
+
+ls -i : to see inode
+
+Inode : file systems like xfs, ext4 and others keep track of data with the help of Inodes. It also keep tracks of metadata like permissions, data last modified, last accesses and so on.
+File points to the Inode and Inode points to all the blocks of data that are required.Linux creates Hard Link. If the data is same then that file points to the same inode.
+
+to create hard link :
+ln /path/to/targetfile /path/to/linkfile
+linkfile is the name of the hard link we create.
+
+Deleting, renaming, moving the original file will not effect the hardlink because Hardlink points to Inode.
+
+limitations for hard links:
+1.only hardlink to files, not folders
+2.files should be on the same file system
+
+considerations for hard links:
+1.Make sure to have permissions to create linkfile at the destination.
+2.Make sure that all users involved have required permissions to access that file.
+
+# create-and-manage-soft-links
+
+softlink will be removed if original file is removed or renamed because soft link doesn't points to Inode, it just points to original file.
+
+ln -s /path/to/targetfile /path/to/linkfile
+-s is symbolic
+
+Better to use relative paths while creating soft link because just incase if any middle of the folder name is renamed link wont break.
+soft link can be created to files and folders and those files and folders can be on different file systems.
+soft links are nothing more than paths pointing to the files or folders.
+
+# list--set--and-change-standard
+
+# Owners and Groups
+
+chown: change owner of file/folder
+sudo chown username file/folder
+only the root user can change the user owner
+
+chgrp : change group of file/folder. without sudo user can only change the group of file/folder that user belongs to.
+chgrp groupname file/directory
+
+groups : to see groups current user or specified user belongs to.
+groups : for current user
+groups username
+
+single command to change the user owner and group of file/folder:
+sudo chown user:group file/folder
+
+# File and Directory Permissions
+
+Permissions:
+r read
+w write
+x Execute
+
+- No Permission
+
+permissions shown are for
+u Owner
+g Group
+o Others
+
+Permissions behaviour for directories:
+r : ls Pictures/
+w : mkdir Pictures/Family
+x : cd Pictures
+
+For example if a owner has only read permission and group have rw permission and owner also belong to that group. Still owner belongs to group which have rw permissions, owner wont be having write access because permissions are evaluated from left to right.
+
+chmod : change mode, to change permissions for a file/folder to restrict the access to owner,group and others.
+chmod permissions file/directory
+
+add/remove permissions: with this approach we dont care what permissions are.
+u+[list of permissions]
+g-[list of permissions]
+
+chmod u+w file/folder
+chmod o-r file/folder
+
+Setting exact permissions: This will reset to the permissions provided.
+u=[list of permissions]
+
+chmod g=rw file/folder
+chmod g= file/folder
+
+Chaining permissions:
+chmod u+rw,g=r,o= file/folder
+chmod u=rw,g-w file
+
+Octal Permissions:
+rwx : 421
+chmod 640 file
+
+# suid--sgid--and-sticky-bit permissions
+
+set userid
+suid : when this is set on a file, it means that whenver the file executed its going to be executed as the userid of the owner of the file instead of the userid of the person who is running the file.
+
+leading value is 4 for the set uid.
+
+chmod 4664 file
+now the permissions for the file will look like : -rwSrw-r--
+S means no execute permissions
+
+chmod 4764 file
+now the permissions for the file will look like : -rwsrw-r--
+s means execute permissions enabled
+
+set groupid
+leading value is 2 for the set gid.
+chmod 2664 file
+now the permissions for the file will look like : -rw-rwSr--
+
+chmod 2674 file
+now the permissions for the file will look like : -rw-rwsr--
+
+we can set both at once:
+chmod 6664 file
+now the permissions for the file will look like : -rwSrwSr--
+
+To find files with suid permissions:
+find . -perm /4000
+To find files with guid permissions:
+find . -perm /2000
+To find files with suid or guid permissions:
+find . -perm /6000
+
+sticky bit : It is usually set on the directories that are shared between the people and no matter that permissions are on that directory are only the user that owns a file inside of that directory can delete that file and ofcourse root user can.
+
+mkdir dir
+chmod +t dir or chmod 1777 dir
+now the permissions for the directory will look like : drwxrwxrwt
+
+chmod 1666 dir
+now the permissions for the directory will look like : drw-rw-rwT
+
+# Search for files
+
+find [/path/to/directory] [search_paramaters] 
+If no path mentioned then it searches in current directory
+
+find /usr/share/ -name '*.jpg'
+find /bin/ -name file1.txt
+
+find /lib64/ -size +10M
+
+files modified in last minute
+find /dev/ -mmin -1 
+
+Search Parameters - Name:
+find -name felix
+find -iname felix (ignore case)
+find -name "f*"
+
+Search Parameters - Modified Time
+find -mmin 5 (lists the files modified 5 minutes back, means 4th minute back from current time)
+find -mmin -5 (lists the files modifiesd in last 5 minutes)
+find -mmin +5 (lists the files that are modified before 5 minutes)
+
+Another similar option is mtime - It helps to search for the files that modified in days or past 24 hrs periods
+find -mtime 2
+
+
+Modified Time != Change Time
+Modified Time = Time when the file is modified
+Change Time = When metadata has been changed
+
+Metadata = data about data. like permissions of file
+find -cmin -5 (list the files that permissions got changed in last 5 minutes)
+
+Search Parameters - File Size:
+find -size [size]
+c - bytes, k-kilobytes, M-megabytes, G-gigabytes
+
+find -size 512k
+find -size +512k (greater than 512kb)
+find -size -512k (less than 512kb)
+
+
+Search Parameters - Search Expressions:
+find -name "f*"
+find -name "f*" -size 512k ( AND operator)
+find -name "f*" -o -size 512k ( OR operator)
+find -not -name "f*" (NOT operator)
+find \! -name "f*" (alternate NOT operator)
+
+find -perm 664 (find files with exactly 664 permissions)
+find –perm u=rw,g=rw,o=r
+
+find -perm -664 (find files with at least 664 permissions)
+find –perm –u=rw,g=rw,o=r
+
+find -perm /664 (find files with any of these permissions)
+find –perm /u=rw,g=rw,o=r
+
+$ find -perm 600
+$ find -perm -100
+$ find \! -perm –o=r
+$ find -perm /u=r,g=r,o=r
