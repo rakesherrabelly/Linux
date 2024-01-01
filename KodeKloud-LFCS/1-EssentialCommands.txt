@@ -173,7 +173,7 @@ find . -perm /2000
 To find files with suid or guid permissions:
 find . -perm /6000
 
-sticky bit : It is usually set on the directories that are shared between the people and no matter that permissions are on that directory are only the user that owns a file inside of that directory can delete that file and ofcourse root user can.
+sticky bit : It is usually set on the directories that are shared between the people and no matter what permissions are on that directory are only the user that owns a file inside of that directory can delete that file and ofcourse root user can.
 
 mkdir dir
 chmod +t dir or chmod 1777 dir
